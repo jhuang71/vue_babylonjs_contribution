@@ -54,6 +54,10 @@ register([
     path: '/mesh',
     component: require('./mesh/vue.pug').default,
   }, {
+    name: 'asset',
+    path: '/asset',
+    component: require('./asset/vue.pug').default,
+  }, {
     name: 'physics',
     path: '/physics',
     component: require('./physics/vue.pug').default,
