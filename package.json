@@ -34,7 +34,7 @@
     "build": "rm -rf docs && npm run b build:prd",
     "dist:rollup": "rollup --config",
     "dist:uglify": "uglifyjs dist/umd.js -c -m -o dist/umd.min.js",
-    "dist": "rm -rf lib dist && npm run dist:rollup && npm run dist:uglify"
+    "dist": "NODE_OPTIONS=--max_old_space_size=4096 rm -rf lib dist && npm run dist:rollup && npm run dist:uglify"
   },
   "peerDependencies": {
     "vue": "^2.2.0"
