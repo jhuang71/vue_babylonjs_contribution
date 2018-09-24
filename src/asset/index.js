@@ -13,8 +13,9 @@ export default {
   },
 
   watch: {
-    src() {
-      this.loadAssetContainer();
+    src: {
+      handler: 'loadAssetContainer',
+      immediate: true,
     },
   },
 
@@ -33,9 +34,5 @@ export default {
       }
       assetContainer.addAllToScene();
     },
-  },
-
-  mounted() {
-    this.loadAssetContainer();
   },
 };
