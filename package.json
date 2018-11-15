@@ -36,8 +36,9 @@
     "dist:uglify": "uglifyjs dist/umd.js -c -m -o dist/umd.min.js",
     "dist": "BABEL_ENV=dist rm -rf lib dist && npm run dist:rollup && npm run dist:uglify",
     "dist:asset": "NODE_OPTIONS=--max_old_space_size=4096 npm run dist",
-    "test": "BABEL_ENV=test npm run b project test",
-    "test:watch": "BABEL_ENV=test npm run b test"
+    "test": "BABEL_ENV=test ava test.js */test.js **/test.js",
+    "test:watch": "BABEL_ENV=test npm run test -- -w",
+    "test:tap": "BABEL_ENV=test npm run test -- --tap"
   },
   "peerDependencies": {
     "vue": "^2.2.0"
@@ -48,8 +49,10 @@
     "@babel/plugin-external-helpers": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.0.0",
-    "babel-plugin-external-helpers": "^6.22.0",
+    "@vue/test-utils": "^1.0.0-beta.25",
+    "ava": "^1.0.0-beta.8",
     "babylonjs": "3.3.0-rc.3",
     "babylonjs-loaders": "^3.3.0-alpha.9",
     "begin-build": "^0.16.0",
@@ -75,7 +78,7 @@
   },
   "ava": {
     "require": [
-      "babel-register"
+      "@babel/register"
     ]
   }
 }
